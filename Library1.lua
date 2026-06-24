@@ -1717,29 +1717,9 @@ function Library:CreateWindow(Settings)
 local LastSize = WindowSize
 
 Close.MouseButton1Click:Connect(function()
-    Minimized = not Minimized
-
-    if Minimized then
-        LastSize = WindowContainer.Size
-
-        TS:Create(WindowContainer,
-            TweenInfo.new(0.4, Enum.EasingStyle.Quart),
-            {Size = UDim2.new(0, 50, 0, 50)}
-        ):Play()
-
-        Shadow1.ImageTransparency = 1
-        Shadow2.ImageTransparency = 1
-    else
-        TS:Create(WindowContainer,
-            TweenInfo.new(0.4, Enum.EasingStyle.Back),
-            {Size = LastSize}
-        ):Play()
-
-        Shadow1.ImageTransparency = 0.35
-        Shadow2.ImageTransparency = 0.4
-    end
+    WindowContainer.Visible = false
+    MobileBtn.Visible = true
 end)
-
     Library.ScaleWrapper = Create("Frame", {
         Name = "ScaleWrapper",
         Parent = Main,
